@@ -1,0 +1,33 @@
+<div class="flex flex-column gap-2 nav-wrapper">
+  <div class="flex flex-row align-items-center justify-content-between gap-3">
+    <div class="p-2 nav-wrapper__branch">
+      <h2 class="nav-wrapper__branch-name">HAI TRAN FOODS @ 1ST BRANCH OS</h2>
+    </div>
+    <div class="flex flex-row gap-2 p-2 nav-wrapper__sign-in">
+      <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" placeholder="Select a language"></p-dropdown>
+      <button pButton pRipple type="button" label="Sign In"></button>
+    </div>
+  </div>
+  <nav
+    class="flex flex-row align-items-center justify-content-between gap-3 nav-wrapper__toolbar"
+  >
+    <div class="nav-wrapper__group-start">
+      <p-menubar [model]="items"></p-menubar>
+    </div>
+    <div class="w-3 nav-wrapper__group-end">
+      <div class="p-inputgroup">
+        <input
+          type="text"
+          pInputText
+          placeholder="Search for your items easily here"
+        />
+        <button
+          type="button"
+          pButton
+          icon="pi pi-search"
+          styleClass="p-button-success"
+        ></button>
+      </div>
+    </div>
+  </nav>
+</div>

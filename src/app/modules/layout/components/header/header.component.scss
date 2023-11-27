@@ -1,0 +1,7 @@
+.header-container {
+  &__logo {
+    img {
+      object-fit: contain;
+    }
+  }
+}

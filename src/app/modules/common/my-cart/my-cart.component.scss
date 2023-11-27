@@ -1,0 +1,15 @@
+:host {
+  ::ng-deep {
+    .p-panel .p-panel-header {
+      background-color: var(--primary-color);
+    }
+
+    .p-inputnumber-buttons-horizontal .p-inputnumber-input {
+        width: 4rem;
+    }
+
+    .p-panel .p-panel-footer {
+        text-align: center;
+    }
+  }
+}

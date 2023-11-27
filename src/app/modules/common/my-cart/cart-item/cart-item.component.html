@@ -1,0 +1,34 @@
+<div class="flex flex-column gap-1 product-card">
+  <div
+    class="flex flex-row align-items-center justify-content-between gap-2 product-card__row"
+  >
+    <div class="product-card__row--name">
+      横财就手 Chef’s Signature Braised Pork Knuckle
+    </div>
+    <button
+      pButton
+      pRipple
+      type="button"
+      icon="pi pi-trash"
+      class="p-button-rounded p-button-text"
+    ></button>
+  </div>
+  <div
+    class="flex flex-row align-items-center justify-content-between gap-2 product-card__row"
+  >
+    <p-inputNumber
+      [(ngModel)]="value"
+      [showButtons]="true"
+      buttonLayout="horizontal"
+      inputId="horizontal"
+      spinnerMode="horizontal"
+      [step]="1"
+      decrementButtonClass="p-button-primary"
+      incrementButtonClass="p-button-primary"
+      incrementButtonIcon="pi pi-plus"
+      decrementButtonIcon="pi pi-minus"
+      mode="decimal"
+    ></p-inputNumber>
+    <strong>SGD 200</strong>
+  </div>
+</div>

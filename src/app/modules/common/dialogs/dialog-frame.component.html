@@ -1,0 +1,34 @@
+<p-dialog
+  [(visible)]="display"
+  [modal]="true"
+  [closable]="false"
+  showEffect="fade"
+  [style]="{ width: '70%' }"
+  [breakpoints]="{ '960px': '100vw' }"
+>
+  <ng-template pTemplate="header">
+    <div
+      class="flex flex-row align-items-center justify-content-between gap-2 w-full"
+    >
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-arrow-left"
+        class="p-button-rounded p-button-outlined"
+        (click)="onClose()"
+      ></button>
+      <strong class="w-full text-center">SELECT YOUR DESIRED SERVICE</strong>
+    </div>
+  </ng-template>
+  <ng-content select="[body]"></ng-content>
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      icon="pi pi-check"
+      (click)="display = false"
+      label="Ok"
+      class="p-button-outlined"
+    ></button>
+  </ng-template>
+</p-dialog>

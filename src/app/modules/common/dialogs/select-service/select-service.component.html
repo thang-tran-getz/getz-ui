@@ -1,0 +1,30 @@
+<div class="tab-container">
+  <div class="tab-nav-container">
+    <div class="py-3 tab-nav-content">
+      <div class="flex flex-row align-items-center tab-nav__list">
+        <ng-container *ngFor="let item of tabs">
+          <div
+            class="tab-nav-item flex-1 p-3 text-center cursor-pointer"
+            [ngClass]="{ active: activeIndex === item.index }"
+            (click)="selectTab(item.index)"
+          >
+            <strong>{{ item.name }}</strong>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <div class="tab-content-container">
+    <div class="tab-item-content">
+      <ng-template [ngIf]="activeIndex === 0">
+        <p>Pick-up</p>
+      </ng-template>
+      <ng-template [ngIf]="activeIndex === 1">
+        <p>Dine-in</p>
+      </ng-template>
+      <ng-template [ngIf]="activeIndex === 2">
+        <p>Delivery</p>
+      </ng-template>
+    </div>
+  </div>
+</div>
