@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
-interface TabModel {
-  index: number;
-  name: string;
-}
+import { BranchModel, TabModel } from './select-service.model';
 
 @Component({
   selector: 'app-select-service',
@@ -15,6 +12,31 @@ export class SelectServiceComponent {
     {index: 0, name: 'Pick-up'},
     {index: 1, name: 'Dine-in'},
     {index: 2, name: 'Delivery'},
+  ];
+
+  branchSelected: number = 1;
+  branches: BranchModel[] = [
+    {
+      id: 0,
+      img: '',
+      name: '1. Duy Tran - Da Nang',
+      address: '416 Nguyen Van Linh, Da nang',
+      closedTime: new Date,
+    },
+    {
+      id: 1,
+      img: '',
+      name: '2. Duy Tran - Da Nang',
+      address: '416 Nguyen Van Linh, Da nang',
+      closedTime: new Date,
+    },
+    {
+      id: 2,
+      img: '',
+      name: '3. Duy Tran - Da Nang',
+      address: '416 Nguyen Van Linh, Da nang',
+      closedTime: new Date,
+    }
   ];
   constructor() {}
 

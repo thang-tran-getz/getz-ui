@@ -20,7 +20,7 @@
       [(ngModel)]="value"
       [showButtons]="true"
       buttonLayout="horizontal"
-      inputId="horizontal"
+      inputId="horizontal product-{{index}}"
       spinnerMode="horizontal"
       [step]="1"
       decrementButtonClass="p-button-primary"
@@ -28,6 +28,8 @@
       incrementButtonIcon="pi pi-plus"
       decrementButtonIcon="pi pi-minus"
       mode="decimal"
+      [min]="0"
+      [max]="999"
     ></p-inputNumber>
     <strong>SGD 200</strong>
   </div>

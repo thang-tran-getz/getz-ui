@@ -40,6 +40,11 @@ const routes: Routes = [
     ],
   },
   {
+    path: 'login',
+    loadChildren: () =>
+      import('./modules/auth/auth.module').then((m) => m.AuthModule),
+  },
+  {
     path: 'notfound',
     component: NotFoundComponent,
   },

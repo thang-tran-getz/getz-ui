@@ -5,7 +5,7 @@
     </div>
     <div class="flex flex-row gap-2 p-2 nav-wrapper__sign-in">
       <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" placeholder="Select a language"></p-dropdown>
-      <button pButton pRipple type="button" label="Sign In"></button>
+      <button pButton pRipple type="button" label="Sign In" [routerLink]="['/login']"></button>
     </div>
   </div>
   <nav

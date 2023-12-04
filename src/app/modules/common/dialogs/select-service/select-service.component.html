@@ -15,12 +15,20 @@
     </div>
   </div>
   <div class="tab-content-container">
-    <div class="tab-item-content">
+    <div class="h-30rem overflow-auto px-3 tab-item-content">
       <ng-template [ngIf]="activeIndex === 0">
-        <p>Pick-up</p>
+        <div class="flex flex-column gap-2">
+          <ng-container *ngFor="let item of branches">
+            <app-service-card [branch]="item" [(select)]="branchSelected"></app-service-card>
+          </ng-container>
+        </div>
       </ng-template>
       <ng-template [ngIf]="activeIndex === 1">
-        <p>Dine-in</p>
+        <div class="flex flex-column gap-2">
+          <ng-container *ngFor="let item of branches">
+            <app-service-card [branch]="item" [(select)]="branchSelected"></app-service-card>
+          </ng-container>
+        </div>
       </ng-template>
       <ng-template [ngIf]="activeIndex === 2">
         <p>Delivery</p>
