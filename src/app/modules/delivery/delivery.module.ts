@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { DeliveryRoutingModule } from './delivery-routing.module';
-import { DeliveryComponent } from './pages/delivery/delivery.component';
+import { DeliveryRoutingModule } from '@delivery/delivery-routing.module';
+import { DeliveryComponent } from '@delivery/pages/delivery/delivery.component';
 
 @NgModule({
   declarations: [DeliveryComponent],

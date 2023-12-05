@@ -5,8 +5,8 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
 import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
-import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
+import { LoginComponent } from '@auth/login/login.component';
 
 const routes: Routes = [
   {

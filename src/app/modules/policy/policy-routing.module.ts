@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PolicyComponent } from './pages/policy/policy.component';
+import { PolicyComponent } from '@policy/pages/policy/policy.component';
 
 const routes: Routes = [
   {

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LayoutComponent } from './pages/layout/layout.component';
-import { HeaderComponent } from './components/header/header.component';
-import { BodyComponent } from './components/body/body.component';
-import { NavComponent } from './components/nav/nav.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { LayoutComponent } from '@layout/pages/layout/layout.component';
+import { HeaderComponent } from '@layout/components/header/header.component';
+import { BodyComponent } from '@layout/components/body/body.component';
+import { NavComponent } from '@layout/components/nav/nav.component';
+import { FooterComponent } from '@layout/components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { ToolbarModule } from 'primeng/toolbar';
 import { InputTextModule } from 'primeng/inputtext';

@@ -48,13 +48,33 @@
               ],
               "outputHashing": "all"
             },
+            "staging": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.staging.ts"
+                }
+              ]
+            },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -64,6 +84,9 @@
           "configurations": {
             "production": {
               "browserTarget": "getz-ui:build:production"
+            },
+            "staging": {
+              "browserTarget": "getz-ui:build:staging"
             },
             "development": {
               "browserTarget": "getz-ui:build:development"
