@@ -1,0 +1,11 @@
+{
+    "/api": {
+      "target": "http://thangtran.online.sit.getzpass.com",
+      "secure": false,
+      "pathRewrite": {
+        "^/api": ""
+      },
+      "logLevel": "debug",
+      "changeOrigin": true
+    }
+  }

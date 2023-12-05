@@ -89,10 +89,14 @@
               "browserTarget": "getz-ui:build:staging"
             },
             "development": {
-              "browserTarget": "getz-ui:build:development"
+              "browserTarget": "getz-ui:build"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "browserTarget": "getz-ui:build",
+            "proxyConfig": "src/proxy.conf.json"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -113,5 +117,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

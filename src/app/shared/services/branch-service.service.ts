@@ -13,7 +13,7 @@ export class BranchServiceService extends BaseServiceService {
 
   public getBranches(bucket: string): Observable<any> {
     const newUrl =
-      this.apiUrl + 'Product/GetBranchIndexListAsync?bucket=' + bucket;
+      this.apiUrl + '/Product/GetBranchIndexListAsync?bucket=' + bucket;
     return this.post(newUrl, null);
   }
 }

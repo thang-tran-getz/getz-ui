@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { DialogFrameComponent } from '../dialogs/dialog-frame.component';
 
 @Component({

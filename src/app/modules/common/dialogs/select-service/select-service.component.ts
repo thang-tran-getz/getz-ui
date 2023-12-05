@@ -16,36 +16,22 @@ export class SelectServiceComponent implements OnInit {
   ];
 
   branchSelected: number = 1;
-  branches: BranchModel[] = [
-    {
-      id: 0,
-      img: '',
-      name: '1. Duy Tran - Da Nang',
-      address: '416 Nguyen Van Linh, Da nang',
-      closedTime: new Date(),
-    },
-    {
-      id: 1,
-      img: '',
-      name: '2. Duy Tran - Da Nang',
-      address: '416 Nguyen Van Linh, Da nang',
-      closedTime: new Date(),
-    },
-    {
-      id: 2,
-      img: '',
-      name: '3. Duy Tran - Da Nang',
-      address: '416 Nguyen Van Linh, Da nang',
-      closedTime: new Date(),
-    },
-  ];
+  branches: any[] = [];
   constructor(private branchService: BranchServiceService) {}
 
   ngOnInit(): void {
     this.branchService
-      .getBranches('f66941a1-fefb-40e7-b1fc-4bb2676e1bbe')
+      .getBranches('be8100eb-0664-4214-8824-277d7a14f227')
       .subscribe((response: any) => {
-        next: console.log(response);
+        response.forEach((element: any) => {
+          const branch = {
+            id: element.index,
+            img: '',
+            name: element.businessID,
+            address: element.address,
+          };
+          this.branches.push(branch);
+        });
       });
   }
 
