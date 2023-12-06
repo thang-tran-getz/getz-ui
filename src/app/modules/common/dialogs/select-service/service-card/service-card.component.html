@@ -1,7 +1,7 @@
-<div class="service-card-container cursor-pointer" (click)="onChangeBranch(branch.id)">
+<div class="service-card-container cursor-pointer" (click)="onChangeBranch(branch.index)">
   <div
     class="card"
-    [ngClass]="{ 'border-primary-500 bg-blue-50': branch.id === select }"
+    [ngClass]="{ 'border-primary-500 bg-blue-50': branch.index === select }"
   >
     <div class="flex flex-row align-items-center gap-4 service-card-wrapper">
       <div class="service-card__img">
@@ -9,7 +9,7 @@
       </div>
       <div class="flex flex-column gap-4 service-card__content">
         <div class="service-card__title">
-          <strong>{{branch.name}}</strong>
+          <strong>{{branch.businessID}}</strong>
         </div>
         <div class="service-card__address">
           <address>{{branch.address}}</address>

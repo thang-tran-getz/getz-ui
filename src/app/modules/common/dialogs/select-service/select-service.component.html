@@ -18,14 +18,14 @@
     <div class="h-30rem overflow-auto px-3 tab-item-content">
       <ng-template [ngIf]="activeIndex === 0">
         <div class="flex flex-column gap-2">
-          <ng-container *ngFor="let item of branches">
+          <ng-container *ngFor="let item of pickupBranches">
             <app-service-card [branch]="item" [(select)]="branchSelected"></app-service-card>
           </ng-container>
         </div>
       </ng-template>
       <ng-template [ngIf]="activeIndex === 1">
         <div class="flex flex-column gap-2">
-          <ng-container *ngFor="let item of branches">
+          <ng-container *ngFor="let item of dineInBranches">
             <app-service-card [branch]="item" [(select)]="branchSelected"></app-service-card>
           </ng-container>
         </div>

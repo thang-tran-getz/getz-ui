@@ -12,8 +12,13 @@ export class BranchServiceService extends BaseServiceService {
   }
 
   public getBranches(bucket: string): Observable<any> {
-    const newUrl =
-      this.apiUrl + '/Product/GetBranchIndexListAsync?bucket=' + bucket;
-    return this.post(newUrl, null);
+    const url =
+    `${this.apiUrl}/Product/GetBranchIndexListAsync?bucket=${bucket}`;
+    return this.post(url, null);
+  }
+
+  public selectBranch(index: number, isCheckBeforeChange: boolean): Observable<any> {
+    const url = `${this.apiUrl}/Home/ChangBranchIndex?branchIndex=${index}&isCheckBeforeChange=${isCheckBeforeChange}`;
+    return this.post(url, null);
   }
 }

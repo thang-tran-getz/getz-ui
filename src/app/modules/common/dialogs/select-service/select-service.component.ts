@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BranchModel, TabModel } from './select-service.model';
+import { BranchModel, ChangBranchResponse, TabModel } from './select-service.model';
 import { BranchServiceService } from '@services/branch-service.service';
 
 @Component({
@@ -15,27 +15,40 @@ export class SelectServiceComponent implements OnInit {
     { index: 2, name: 'Delivery' },
   ];
 
-  branchSelected: number = 1;
-  branches: any[] = [];
+  private _branchSelected: number = 1;
+
+  set branchSelected(value: number) {
+    this.selectBranch(value);
+    this._branchSelected = value;
+  }
+
+  get branchSelected(): number {
+    console.log('get', this._branchSelected);
+    return this._branchSelected;
+  }
+  
+  pickupBranches: BranchModel[] = [];
+  dineInBranches: BranchModel[] = [];
   constructor(private branchService: BranchServiceService) {}
 
   ngOnInit(): void {
     this.branchService
-      .getBranches('be8100eb-0664-4214-8824-277d7a14f227')
-      .subscribe((response: any) => {
-        response.forEach((element: any) => {
-          const branch = {
-            id: element.index,
-            img: '',
-            name: element.businessID,
-            address: element.address,
-          };
-          this.branches.push(branch);
-        });
+      .getBranches('e61316fb-54df-4245-928d-9080c882e67f')
+      .subscribe((response: BranchModel[]) => {
+        this.pickupBranches = response.filter(_ => _.enablePickup);
+        this.dineInBranches = response.filter(_ => _.enableStationOrdering || _.enableReservation);
       });
   }
 
   selectTab(index: number) {
     this.activeIndex = index;
+  }
+
+  selectBranch(index: number): void {
+    this.branchService
+      .selectBranch(index, false)
+      .subscribe((response: ChangBranchResponse) => {
+        console.log(response);
+      });
   }
 }
