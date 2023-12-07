@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { BranchModel } from '../select-service.model';
+import { IBranchModel } from '../select-service.model';
 
 @Component({
   selector: 'app-service-card',
@@ -7,7 +7,7 @@ import { BranchModel } from '../select-service.model';
   styleUrls: ['./service-card.component.scss'],
 })
 export class ServiceCardComponent {
-  @Input({ required: true }) branch: BranchModel;
+  @Input({ required: true }) branch: IBranchModel;
   @Input() select: number;
   @Output('selectChange') changeBranchEvent = new EventEmitter<number>(); 
   constructor() {}

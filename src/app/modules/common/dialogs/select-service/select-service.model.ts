@@ -1,9 +1,9 @@
-export interface TabModel {
+export interface ITabModel {
   index: number;
   name: string;
 }
 
-export interface BranchModel {
+export interface IBranchModel {
   bucket: string;
   index: number;
   originalAddress: string;
@@ -29,7 +29,7 @@ export interface BranchModel {
   isCloseToDay: boolean;
 }
 
-export interface ChangBranchResponse {
+export interface IChangBranchResponse {
   success: boolean
   isExistedItemHide: boolean
   listProductInvalid: any
@@ -38,8 +38,8 @@ export interface ChangBranchResponse {
   currentDate: string
   timeselected: string
   deliveryTime: number
-  settingTime: SettingTime
-  listAvailableTimes: AvailableTime[]
+  settingTime: ISettingTime
+  listAvailableTimes: IAvailableTime[]
   preparationTime: number
   settingBlockOut: any[]
   autoCollectDate: string
@@ -47,7 +47,7 @@ export interface ChangBranchResponse {
   isAutoRedirect: boolean
   autoRedirectType: number
   blockOuts: any[]
-  outletAvailableTimes: AvailableTime[]
+  outletAvailableTimes: IAvailableTime[]
   serviceTitle: string
   postalCode: string
   outletTitle: string
@@ -56,7 +56,7 @@ export interface ChangBranchResponse {
   outletId: string
 }
 
-export interface SettingTime {
+export interface ISettingTime {
   docId: string
   BranchId: string
   BranchName: string
@@ -65,7 +65,7 @@ export interface SettingTime {
   status: boolean
   allowAutoAcceptOrder: boolean
   prepareTime: string
-  arrayDayOfWeekSetting: ArrayDayOfWeekSetting[]
+  arrayDayOfWeekSetting: IArrayDayOfWeekSetting[]
   allowSound: boolean
   allowPushNotification: boolean
   allowSendEmail: boolean
@@ -74,7 +74,7 @@ export interface SettingTime {
   isDisableExtendBlockTime: boolean
 }
 
-export interface ArrayDayOfWeekSetting {
+export interface IArrayDayOfWeekSetting {
   dayOfWeek: number
   option: number
   split_OpeningStart: string
@@ -85,7 +85,7 @@ export interface ArrayDayOfWeekSetting {
   open_Closing: string
 }
 
-export interface AvailableTime {
+export interface IAvailableTime {
   dayOfWeek: number
   itemAvailableTimes: string
   begin_time: string
