@@ -6,6 +6,7 @@
     "outDir": "./dist/out-tsc",
     "paths": {
       "@app/*": ["app/*"],
+      "@core/*": ["app/cores/*"],
       "@layout/*": ["app/modules/layout/*"],
       "@shared/*": ["app/shared/*"],
       "@about/*": ["app/modules/about/*"],

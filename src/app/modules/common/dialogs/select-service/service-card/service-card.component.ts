@@ -10,7 +10,6 @@ export class ServiceCardComponent {
   @Input({ required: true }) branch: IBranchModel;
   @Input() select: number;
   @Output('selectChange') changeBranchEvent = new EventEmitter<number>(); 
-  constructor() {}
 
   onChangeBranch(id: number) {
     this.changeBranchEvent.emit(id);

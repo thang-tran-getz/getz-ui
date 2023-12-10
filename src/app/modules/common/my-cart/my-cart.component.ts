@@ -1,5 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
-import { DialogFrameComponent } from '../dialogs/dialog-frame.component';
+import { Component } from '@angular/core';
+import { SelectServiceComponent } from '../dialogs/select-service/select-service.component';
+import { DialogDynamicService } from '../dialogs/dialog-dynamic.service';
+import { DialogDynamicRef } from '../dialogs/dialog-dynamic-ref';
 
 @Component({
   selector: 'app-my-cart',
@@ -7,10 +9,10 @@ import { DialogFrameComponent } from '../dialogs/dialog-frame.component';
   styleUrls: ['./my-cart.component.scss'],
 })
 export class MyCartComponent {
-  @ViewChild(DialogFrameComponent, {read: DialogFrameComponent, static: true}) public dialogComponent!: DialogFrameComponent;
   loading = false;
-  
-  constructor() {}
+  dialogDynamicRef: DialogDynamicRef | null;
+
+  constructor(private dialogService: DialogDynamicService) {}
 
   load() {
     this.loading = true;
@@ -18,6 +20,16 @@ export class MyCartComponent {
   }
 
   selectServices() {
-    this.dialogComponent.onShow();
+    this.dialogDynamicRef = this.dialogService.open(SelectServiceComponent, {
+      header: 'SELECT YOUR DESIRED SERVICE',
+      data: { message: 'I am a dynamic component inside of a dialog!' },
+      width: '60%',
+      contentStyle: { overflow: 'auto' },
+      backable: true,
+    });
+
+    this.dialogDynamicRef?.onClose.subscribe((result) => {
+      console.log('Dialog closed', result);
+    });
   }
 }

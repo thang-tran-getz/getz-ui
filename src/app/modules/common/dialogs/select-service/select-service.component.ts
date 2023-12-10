@@ -1,7 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { IBranchModel, IChangBranchResponse, ITabModel } from './select-service.model';
-import { BranchServiceService } from '@services/branch-service.service';
+import { Component, Input, OnInit } from '@angular/core';
+import {
+  IBranchModel,
+  IChangBranchResponse,
+  ITabModel,
+} from './select-service.model';
+import { BranchService } from '@services/branch-service.service';
 import { IBaseResponse } from '@shared/models/base-response.model';
+import { DialogDynamicRef } from '../dialog-dynamic-ref';
+import { DialogDynamicModel } from '../dialog-dynamic.model';
 
 @Component({
   selector: 'app-select-service',
@@ -24,20 +30,26 @@ export class SelectServiceComponent implements OnInit {
   }
 
   get branchSelected(): number {
-    console.log('get', this._branchSelected);
     return this._branchSelected;
   }
-  
+
   pickupBranches: IBranchModel[] = [];
   dineInBranches: IBranchModel[] = [];
-  constructor(private branchService: BranchServiceService) {}
+  constructor(
+    private dialogDynamicRef: DialogDynamicRef,
+    private config: DialogDynamicModel,
+    private branchService: BranchService
+  ) {}
 
   ngOnInit(): void {
     this.branchService
       .getBranches()
       .subscribe((response: IBaseResponse<IBranchModel[]>) => {
-        this.pickupBranches = response.Data.filter(_ => _.enablePickup);
-        this.dineInBranches = response.Data.filter(_ => _.enableStationOrdering || _.enableReservation);
+        console.log(this.config.data);
+        this.pickupBranches = response.Data.filter((_) => _.enablePickup);
+        this.dineInBranches = response.Data.filter(
+          (_) => _.enableStationOrdering || _.enableReservation
+        );
       });
   }
 
@@ -49,7 +61,7 @@ export class SelectServiceComponent implements OnInit {
     this.branchService
       .selectBranch(index, false)
       .subscribe((response: IBaseResponse<IChangBranchResponse>) => {
-        console.log(response);
+        this.dialogDynamicRef.close(response);
       });
   }
 }

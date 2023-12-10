@@ -5,7 +5,7 @@ import { environment } from 'environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export abstract class BaseServiceService {
+export abstract class BaseService {
   protected apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}

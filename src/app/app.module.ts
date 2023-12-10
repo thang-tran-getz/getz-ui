@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
@@ -10,6 +10,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'primeng/toast';
 import { MessagesModule } from 'primeng/messages';
 import { MessageService } from 'primeng/api';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { LoadingInterceptor } from '@core/interceptors/loading.interceptor';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -21,9 +24,11 @@ import { MessageService } from 'primeng/api';
     ToastModule,
     MessagesModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    ProgressSpinnerModule
   ],
-  providers: [MessageService],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+    MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

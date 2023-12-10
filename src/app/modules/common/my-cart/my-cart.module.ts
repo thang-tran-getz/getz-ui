@@ -8,7 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { RewardItemComponent } from '@common/my-cart/reward-item/reward-item.component';
 import { CartItemComponent } from '@common/my-cart/cart-item/cart-item.component';
 import { SelectServiceModule } from '@common/dialogs/select-service/select-service.module';
-import { DialogFrameModule } from '@common/dialogs/dialog-frame.module';
+import { DialogDynamicModule } from '@app/modules/common/dialogs/dialog-dynamic.module';
+import { DialogDynamicService } from '../dialogs/dialog-dynamic.service';
 
 @NgModule({
   declarations: [MyCartComponent, RewardItemComponent, CartItemComponent],
@@ -18,10 +19,10 @@ import { DialogFrameModule } from '@common/dialogs/dialog-frame.module';
     DividerModule,
     InputNumberModule,
     FormsModule,
-    DialogFrameModule,
+    DialogDynamicModule,
     SelectServiceModule,
   ],
-  providers: [],
+  providers: [DialogDynamicService],
   exports: [MyCartComponent],
 })
 export class MyCartModule {}

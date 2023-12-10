@@ -1,0 +1,162 @@
+<!-- <p-dialog
+  [(visible)]="display"
+  [modal]="true"
+  [closable]="false"
+  showEffect="fade"
+  [style]="{ width: '70%' }"
+  [breakpoints]="{ '960px': '100vw' }"
+>
+  <ng-template pTemplate="header">
+    <div
+      class="flex flex-row align-items-center justify-content-between gap-2 w-full"
+    >
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-arrow-left"
+        class="p-button-rounded p-button-outlined"
+        (click)="onClose()"
+      ></button>
+      <strong class="w-full text-center">SELECT YOUR DESIRED SERVICE</strong>
+    </div>
+  </ng-template>
+  <div class="dynamic-wrapper">
+    <div #dynamicDialogComponent></div>
+  </div>
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      icon="pi pi-check"
+      (click)="display = false"
+      label="Ok"
+      class="p-button-outlined"
+    ></button>
+  </ng-template>
+</p-dialog>
+<div class="wrapper">
+  <button (click)="onShow()" class="btn">Add Dynamic Component 1</button>
+  <button (click)="onClose()" class="btn">Close</button>
+</div> -->
+<div
+  #mask
+  [ngClass]="{
+    'p-dialog-mask': true,
+    'p-component-overlay p-component-overlay-enter p-dialog-mask-scrollblocker':
+      config.modal !== false,
+    'p-dialog-left': position === 'left',
+    'p-dialog-right': position === 'right',
+    'p-dialog-top': position === 'top',
+    'p-dialog-bottom': position === 'bottom',
+    'p-dialog-top-left': position === 'topleft' || position === 'top-left',
+    'p-dialog-top-right': position === 'topright' || position === 'top-right',
+    'p-dialog-bottom-left':
+      position === 'bottomleft' || position === 'bottom-left',
+    'p-dialog-bottom-right':
+      position === 'bottomright' || position === 'bottom-right'
+  }"
+  [class]="config.maskStyleClass ?? ''"
+>
+  <div
+    #container
+    [ngClass]="{
+      'p-dialog p-dynamic-dialog p-component': true,
+      'p-dialog-rtl': config.rtl,
+      'p-dialog-resizable': config.resizable,
+      'p-dialog-draggable': config.draggable,
+      'p-dialog-maximized': maximized
+    }"
+    [ngStyle]="config.style"
+    [class]="config.styleClass ?? ''"
+    [@animation]="{
+      value: 'visible',
+      params: {
+        transform: transformOptions,
+        transition:
+          config.transitionOptions || '150ms cubic-bezier(0, 0, 0.2, 1)'
+      }
+    }"
+    (@animation.start)="onAnimationStart($event)"
+    (@animation.done)="onAnimationEnd($event)"
+    role="dialog"
+    *ngIf="visible"
+    [style.width]="config.width"
+    [style.height]="config.height"
+    [attr.aria-labelledby]="ariaLabelledBy"
+    [attr.aria-modal]="true"
+  >
+    <div
+      *ngIf="config.resizable"
+      class="p-resizable-handle"
+      style="z-index: 90"
+      (mousedown)="initResize($event)"
+    ></div>
+    <div
+      #titlebar
+      class="p-dialog-header"
+      (mousedown)="initDrag($event)"
+      *ngIf="config.showHeader === false ? false : true"
+    >
+      <div class="p-dialog-header-prepend-icons">
+        <button
+        [ngClass]="'p-dialog-header-icon p-dialog-header-maximize p-link'"
+        type="button"
+        role="button"
+        (click)="hide()"
+        (keydown.enter)="hide()"
+        *ngIf="config.backable !== false"
+        >
+          <ArrowLeftIcon
+            *ngIf="!maximized && !maximizeIcon"
+            [styleClass]="'p-dialog-header-maximize-icon'"
+          />
+        </button>
+      </div>
+      <span class="p-dialog-title" [id]="ariaLabelledBy + '_title'">{{
+        config.header
+      }}</span>
+      <div class="p-dialog-header-icons">
+        <button
+          *ngIf="config.maximizable"
+          type="button"
+          [ngClass]="{
+            'p-dialog-header-icon p-dialog-header-maximize p-link': true
+          }"
+          (click)="maximize()"
+          (keydown.enter)="maximize()"
+          tabindex="-1"
+          pRipple
+        >
+          <span
+            class="p-dialog-header-maximize-icon"
+            [ngClass]="maximized ? minimizeIcon : maximizeIcon"
+          ></span>
+          <WindowMaximizeIcon
+            *ngIf="!maximized && !maximizeIcon"
+            [styleClass]="'p-dialog-header-maximize-icon'"
+          />
+          <WindowMinimizeIcon
+            *ngIf="maximized && !minimizeIcon"
+            [styleClass]="'p-dialog-header-maximize-icon'"
+          />
+        </button>
+        <button
+          [ngClass]="'p-dialog-header-icon p-dialog-header-maximize p-link'"
+          type="button"
+          role="button"
+          (click)="hide()"
+          (keydown.enter)="hide()"
+          *ngIf="config.closable !== false"
+        >
+          <TimesIcon [styleClass]="'p-dialog-header-close-icon'" />
+        </button>
+      </div>
+    </div>
+    <div #content class="p-dialog-content" [ngStyle]="config.contentStyle">
+      <ng-template pDialogDynamicContent></ng-template>
+    </div>
+    <div class="p-dialog-footer" *ngIf="config.footer">
+      {{ config.footer }}
+    </div>
+  </div>
+</div>

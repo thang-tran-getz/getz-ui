@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { BaseServiceService } from '@services/base-service.service';
+import { BaseService } from '@services/base-service.service';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class BranchServiceService extends BaseServiceService {
+export class BranchService extends BaseService {
   public getBranches(): Observable<any> {
     return this.get(`${this.apiUrl}/HomeApi/GetBranchList`);
   }
