@@ -1,0 +1,15 @@
+<p-carousel
+  [value]="slides"
+  [numVisible]="1"
+  [numScroll]="1"
+  [circular]="true"
+  [showIndicators]="false"
+  [showNavigators]="false"
+  [autoplayInterval]="3000"
+>
+  <ng-template let-item pTemplate="item">
+    <div class="border-1 surface-border border-round h-30rem w-full text-center">
+      <img [src]="item.urlImage" [alt]="item.name" class="h-full w-full ob shadow-2" />
+    </div>
+  </ng-template>
+</p-carousel>
