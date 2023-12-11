@@ -32,10 +32,29 @@
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "src/styles.scss",
-              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+              {
+                "input": "@assets/themes/saga-blue.css",
+                "bundleName": "saga-blue",
+                "inject": false
+              },
+              {
+                "input": "@assets/themes/saga-green.css",
+                "bundleName": "saga-green",
+                "inject": false
+              },
+              {
+                "input": "@assets/themes/saga-orange.css",
+                "bundleName": "saga-orange",
+                "inject": false
+              },
+              {
+                "input": "@assets/themes/saga-purple.css",
+                "bundleName": "saga-purple",
+                "inject": false
+              },
               "node_modules/primeng/resources/primeng.min.css",
-              "node_modules/primeflex/primeflex.css"
+              "node_modules/primeflex/primeflex.css",
+              "src/styles.scss"
             ],
             "scripts": []
           },

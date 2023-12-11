@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api/menuitem';
-interface City {
-  name: string;
-  code: string;
-}
+import { ILangModel, IThemeModel } from './nav.model';
+import { AppService } from '@app/app.service';
 
 @Component({
   selector: 'app-nav',
@@ -11,21 +9,36 @@ interface City {
   styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent {
-  public items: MenuItem[] | undefined;
-  cities: City[] | undefined;
+  public items: MenuItem[];
+  public themes: IThemeModel[];
+  public selectedTheme: IThemeModel;
 
-  selectedCity: City | undefined;
+  public langs: ILangModel[];
+  public selectedLang: ILangModel;
 
-  ngOnInit() {
-    this.cities = [
-      { name: 'English', code: 'EN' },
-      { name: 'China', code: 'CN' },
+  constructor(private appService: AppService) {
+    this.themes = [
+      { label: 'Saga blue', id: 'saga-blue' },
+      { label: 'Saga green', id: 'saga-green' },
+      { label: 'Saga orange', id: 'saga-orange' },
+      { label: 'Saga purple', id: 'saga-purple' },
     ];
 
-    this.selectedCity = {
-      code: 'EN',
-      name: 'English'
-    }
+    this.selectedTheme = {
+      label: 'Saga blue',
+      id: 'saga-blue',
+    };
+
+    this.langs = [
+      { label: 'English', id: 'EN' },
+      { label: 'Viet nam', id: 'VN' },
+      { label: 'Thai land', id: 'TL' },
+    ];
+
+    this.selectedLang = {
+      id: 'EN',
+      label: 'English',
+    };
 
     this.items = [
       {
@@ -63,5 +76,18 @@ export class NavComponent {
         routerLink: '/about',
       },
     ];
+  }
+
+  ngOnInit() {
+    //
+  }
+
+  public onChangeTheme(themeId: string) {
+    this.appService.switchTheme(themeId);
+    this.selectedTheme = this.themes.find((_) => _.id === themeId) || this.themes[0];
+  }
+
+  public onChangeLang(langId: string) {
+    this.selectedLang = this.langs.find((_) => _.id === langId) || this.langs[0];
   }
 }
