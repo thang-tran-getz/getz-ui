@@ -12,6 +12,7 @@ import { MessagesModule } from 'primeng/messages';
 import { MessageService } from 'primeng/api';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { LoadingInterceptor } from '@core/interceptors/loading.interceptor';
+import { PascalToCamelInterceptor } from './cores/interceptors/pascal-to-camel.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,10 +26,21 @@ import { LoadingInterceptor } from '@core/interceptors/loading.interceptor';
     MessagesModule,
     SharedModule,
     HttpClientModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
-    MessageService],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: PascalToCamelInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true,
+    },
+    MessageService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

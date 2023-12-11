@@ -18,7 +18,7 @@
       "@return-exchange/*": ["app/modules/return-exchange/*"],
       "@services/*": ["app/shared/services/*"],
       "@assets/*": ["assets/*"],
-      "@environment/*": ["environments/*"],
+      "@environments/*": ["environments/*"],
     },
     "strictPropertyInitialization": false,
     "forceConsistentCasingInFileNames": true,

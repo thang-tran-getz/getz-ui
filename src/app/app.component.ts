@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
   }
 
   listenToLoading(): void {
-    this._loading.loadingSub.pipe(delay(0)).subscribe((loading) => {
+    this._loading.loadingSub$.pipe(delay(0)).subscribe((loading) => {
       this.loading = loading;
     });
   }

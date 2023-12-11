@@ -46,8 +46,8 @@ export class SelectServiceComponent implements OnInit {
       .getBranches()
       .subscribe((response: IBaseResponse<IBranchModel[]>) => {
         console.log(this.config.data);
-        this.pickupBranches = response.Data.filter((_) => _.enablePickup);
-        this.dineInBranches = response.Data.filter(
+        this.pickupBranches = response.data.filter((_) => _.enablePickup);
+        this.dineInBranches = response.data.filter(
           (_) => _.enableStationOrdering || _.enableReservation
         );
       });
