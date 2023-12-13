@@ -4,7 +4,7 @@ import {
   IChangBranchResponse,
   ITabModel,
 } from './select-service.model';
-import { BranchService } from '@services/branch-service.service';
+import { BranchService } from '@app/shared/services/branch.service';
 import { IBaseResponse } from '@shared/models/base-response.model';
 import { DialogDynamicRef } from '../dialog-dynamic-ref';
 import { DialogDynamicModel } from '../dialog-dynamic.model';
@@ -36,16 +36,16 @@ export class SelectServiceComponent implements OnInit {
   pickupBranches: IBranchModel[] = [];
   dineInBranches: IBranchModel[] = [];
   constructor(
-    private dialogDynamicRef: DialogDynamicRef,
-    private config: DialogDynamicModel,
-    private branchService: BranchService
+    private _dialogDynamicRef: DialogDynamicRef,
+    private _config: DialogDynamicModel,
+    private _branchService: BranchService
   ) {}
 
   ngOnInit(): void {
-    this.branchService
-      .getBranches()
+    this._branchService
+      .fetchBranches()
       .subscribe((response: IBaseResponse<IBranchModel[]>) => {
-        console.log(this.config.data);
+        console.log(this._config.data);
         this.pickupBranches = response.data.filter((_) => _.enablePickup);
         this.dineInBranches = response.data.filter(
           (_) => _.enableStationOrdering || _.enableReservation
@@ -58,10 +58,31 @@ export class SelectServiceComponent implements OnInit {
   }
 
   selectBranch(index: number): void {
-    this.branchService
+    switch (this.activeIndex) {
+      case 0:
+        this.selectBranchPickup(index);
+        break;
+      case 1:
+        this.selectBranchDineIn(index);
+        break;
+      default:
+        break;
+    }
+  }
+
+  private selectBranchDineIn(index: number): void {
+    this._branchService
+      .clearSessionAnnouncement()
+      .subscribe((response: IBaseResponse<any>) => {
+        this._dialogDynamicRef.close(response);
+      });
+  }
+
+  private selectBranchPickup(index: number): void {
+    this._branchService
       .selectBranch(index, false)
       .subscribe((response: IBaseResponse<IChangBranchResponse>) => {
-        this.dialogDynamicRef.close(response);
+        this._dialogDynamicRef.close(response);
       });
   }
 }

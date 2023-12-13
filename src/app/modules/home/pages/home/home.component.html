@@ -1,6 +1,9 @@
-<div class="grid">
-  <div class="col-12 md:col-8">
-    <div class="home-container horizontal-scroll px-3">
+<div class="home-container horizontal-scroll px-3">
+  <div class="grid">
+    <div class="col-12">
+      <app-slide [slides]="slideHeaders"></app-slide>
+    </div>
+    <div class="col-12 md:col-8">
       <div class="grid">
         <div class="sm:col-12 md:col-6 lg:col-4">
           <app-category-card></app-category-card>
@@ -16,8 +19,8 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-12 md:col-4">
-    <app-my-cart></app-my-cart>
+    <div class="col-12 md:col-4">
+      <app-my-cart></app-my-cart>
+    </div>
   </div>
 </div>

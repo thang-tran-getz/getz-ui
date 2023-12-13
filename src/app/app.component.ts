@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { delay } from 'rxjs';
-import { LoadingService } from '@shared/services/loading-service.service';
+import { LoadingService } from './shared/services/loading.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   loading: boolean = false;
 
   constructor(
-    private messageService: MessageService,
+    private _messageService: MessageService,
     private _loading: LoadingService
   ) {}
 
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   }
 
   show() {
-    this.messageService.add({
+    this._messageService.add({
       severity: 'success',
       summary: 'Success',
       detail: 'Message Content',

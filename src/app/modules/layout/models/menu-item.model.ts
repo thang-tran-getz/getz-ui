@@ -1,9 +1,9 @@
-export interface MenuItem {
+export interface IMenuItem {
   id?: string;
   label?: string;
   icon?: string;
   routerLink?: string;
-  items?: MenuItem[];
+  items?: IMenuItem[];
   separator?: boolean;
   styleClass?: string;
 }

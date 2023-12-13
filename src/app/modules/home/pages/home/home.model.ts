@@ -1,0 +1,23 @@
+export interface IHomeDataRequest {
+  id: string | null;
+  theme: string | null;
+  previewtheme: string | null;
+  logoImg: string | null;
+  urlImages: string | null;
+  StoreID: string | null;
+  Service: string | null;
+  Postal: string | null;
+  srcag: string | null;
+  isRedeem: string | null;
+  lang: string | null;
+  utm_source: string | null;
+  utm_campaign: string | null;
+  utm_medium: string | null;
+  suId: string | null;
+  templateType: string | null;
+  keyPartner: string | null;
+  phone: string | null;
+  os: string | null;
+  loginToken: string | null;
+  cardNo: string | null;
+}

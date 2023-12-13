@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { SelectServiceComponent } from '../dialogs/select-service/select-service.component';
 import { DialogDynamicService } from '../dialogs/dialog-dynamic.service';
 import { DialogDynamicRef } from '../dialogs/dialog-dynamic-ref';
+import { HomeService } from '@app/shared/services/home.service';
 
 @Component({
   selector: 'app-my-cart',
@@ -12,7 +13,8 @@ export class MyCartComponent {
   loading = false;
   dialogDynamicRef: DialogDynamicRef | null;
 
-  constructor(private dialogService: DialogDynamicService) {}
+  constructor(private _dialogService: DialogDynamicService,
+    private _homeService: HomeService) {}
 
   load() {
     this.loading = true;
@@ -20,7 +22,7 @@ export class MyCartComponent {
   }
 
   selectServices() {
-    this.dialogDynamicRef = this.dialogService.open(SelectServiceComponent, {
+    this.dialogDynamicRef = this._dialogService.open(SelectServiceComponent, {
       header: 'SELECT YOUR DESIRED SERVICE',
       data: { message: 'I am a dynamic component inside of a dialog!' },
       width: '60%',
@@ -30,6 +32,9 @@ export class MyCartComponent {
 
     this.dialogDynamicRef?.onClose.subscribe((result) => {
       console.log('Dialog closed', result);
+      this._homeService.signUp().subscribe(response => {
+        console.log(response);
+      });
     });
   }
 }
