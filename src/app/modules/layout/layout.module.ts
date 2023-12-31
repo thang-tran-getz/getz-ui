@@ -13,6 +13,7 @@ import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormsModule } from '@angular/forms';
     BodyComponent,
     NavComponent,
     FooterComponent,
+    LoaderComponent,
   ],
   imports: [
     CommonModule,
@@ -32,5 +34,8 @@ import { FormsModule } from '@angular/forms';
     MenubarModule,
     DropdownModule,
   ],
+  exports: [
+    LoaderComponent
+  ]
 })
 export class LayoutModule {}

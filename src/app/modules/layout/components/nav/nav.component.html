@@ -5,7 +5,7 @@
     </div>
     <div class="flex flex-row gap-2 p-2 nav-wrapper__sign-in">
       <p-dropdown [options]="themes" [(ngModel)]="selectedTheme" (onChange)="onChangeTheme(selectedTheme.id)" optionLabel="label" placeholder="Select a theme"></p-dropdown>
-      <p-dropdown [options]="langs" [(ngModel)]="selectedLang" (onChange)="onChangeLang(selectedLang.id)" optionLabel="label" placeholder="Select a language"></p-dropdown>
+      <p-dropdown [options]="translate.getLangs()" [(ngModel)]="selectedLang" (onChange)="onChangeLang(selectedLang.id)" optionLabel="label" placeholder="Select a language"></p-dropdown>
       <button pButton pRipple type="button" label="Sign In" [routerLink]="['/login']"></button>
     </div>
   </div>
