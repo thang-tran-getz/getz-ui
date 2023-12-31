@@ -1,5 +1,19 @@
 {
-    "Home": "Trang chu",
-    "Menu": "Menu",
-    "SelectOtherServices": "Chon service khac"
+  "menuBar": {
+    "home": "Trang chủ",
+    "menu": "Menu",
+    "about": "Giới thiệu"
+  },
+  "signIn": "Đăng nhập",
+  "selectServices": "Chọn dịch vụ",
+  "aboutUs": "Giới thiệu",
+  "deliveryInformation": "Thông tin vận chuyển",
+  "returnExchange": "Đổi trả",
+  "privacyPolicy": "Chính sách",
+  "dineIn": "Ăn tại bàn",
+  "searchItems": "Tìm sản phẩm tại đây",
+  "rewards": "Phần thưởng",
+  "itemAdded": "Sản phẩm đã thêm",
+  "clearItem": "Xóa sản phẩm",
+  "checkout": "Thanh toán"
 }

@@ -9,10 +9,10 @@
             class="flex flex-row align-items-center justify-content-between gap-2"
           >
             <i class="pi pi-shopping-cart"></i>
-            <span class="text-color text-xl">Dine in</span>
+            <span class="text-xl">{{'dineIn' | translate}}</span>
           </div>
           <p-button
-            label="Select other services"
+            [label]="'selectServices' | translate"
             icon="pi pi-search"
             [loading]="loading"
             (onClick)="selectServices()"
@@ -27,10 +27,10 @@
             <div
               class="flex flex-column align-items-start gap-2 panel-header__title--content"
             >
-              <div class="text-color panel-header__title--name">
+              <div class="panel-header__title--name">
                 Duy Tran Kovan Branch Da Nang Viet Nam
               </div>
-              <div class="text-color panel-header__title--address">
+              <div class="panel-header__title--address">
                 461B Bukit Batok West Ave 8, 318990, Singapore
               </div>
             </div>
@@ -51,7 +51,7 @@
       <div class="flex flex-column gap-2 cart-container horizontal-scroll px-3">
         <p-panel [toggleable]="true" [collapsed]="true" icons="pi-chevron-up">
           <ng-template pTemplate="header">
-            <span>Rewards</span>
+            <span>{{'rewards' | translate}}</span>
           </ng-template>
           <ng-template pTemplate="content">
             <app-reward-item></app-reward-item>
@@ -66,12 +66,12 @@
             <div
               class="flex flex-row align-items-center justify-content-between gap-2 w-full"
             >
-              <span>Item(s) added</span>
+              <span>{{'itemAdded' | translate}}</span>
               <button
                 pButton
                 pRipple
                 type="button"
-                label="Clear items"
+                [label]="'clearItem' | translate"
                 class="p-button-success p-button-text"
               ></button>
             </div>
@@ -89,7 +89,7 @@
     <ng-template pTemplate="footer">
       <div class="panel-footer">
         <p-button
-          label="Checkout"
+          [label]="'checkout' | translate"
           icon="pi pi-search"
           [loading]="loading"
           (onClick)="load()"

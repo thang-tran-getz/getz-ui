@@ -14,6 +14,9 @@ import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
 import { LoaderComponent } from './components/loader/loader.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpTranslateLoaderFactory } from '@app/cores/extend/translation-loader';
+import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,14 @@ import { LoaderComponent } from './components/loader/loader.component';
     InputTextModule,
     MenubarModule,
     DropdownModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpTranslateLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   exports: [
     LoaderComponent

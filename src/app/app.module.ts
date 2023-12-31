@@ -3,7 +3,6 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
-import { ButtonModule } from 'primeng/button';
 import { LayoutModule } from '@layout/layout.module';
 import { SharedModule } from '@shared/not-found/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,8 +12,6 @@ import { MessageService } from 'primeng/api';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { LoadingInterceptor } from '@core/interceptors/loading.interceptor';
 import { PascalToCamelInterceptor } from './cores/interceptors/pascal-to-camel.interceptor';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,20 +19,12 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
-    ButtonModule,
     LayoutModule,
     ToastModule,
     MessagesModule,
     SharedModule,
     HttpClientModule,
     ProgressSpinnerModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: httpTranslateLoader,
-        deps: [HttpClient]
-      }
-    })
   ],
   providers: [
     {
@@ -53,6 +42,3 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-export function httpTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http);
-}

@@ -10,6 +10,7 @@ import { CartItemComponent } from '@common/my-cart/cart-item/cart-item.component
 import { SelectServiceModule } from '@common/dialogs/select-service/select-service.module';
 import { DialogDynamicModule } from '@app/modules/common/dialogs/dialog-dynamic.module';
 import { DialogDynamicService } from '../dialogs/dialog-dynamic.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [MyCartComponent, RewardItemComponent, CartItemComponent],
@@ -21,6 +22,7 @@ import { DialogDynamicService } from '../dialogs/dialog-dynamic.service';
     FormsModule,
     DialogDynamicModule,
     SelectServiceModule,
+    TranslateModule.forChild(),
   ],
   providers: [DialogDynamicService],
   exports: [MyCartComponent],

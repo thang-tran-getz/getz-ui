@@ -1,5 +1,19 @@
 {
-    "Home": "Home",
-    "Menu": "Menu",
-    "SelectOtherServices": "Select other services"
+  "menuBar": {
+    "home": "Home",
+    "menu": "Menu",
+    "about": "About"
+  },
+  "signIn": "Sign in",
+  "selectServices": "Select services",
+  "aboutUs": "About us",
+  "deliveryInformation": "Delivery Information",
+  "returnExchange": "Return & Exchange",
+  "privacyPolicy": "Privacy Policy",
+  "dineIn": "Dine in",
+  "searchItems": "Search for your items easily here",
+  "rewards": "Rewards",
+  "itemAdded": "Item(s) added",
+  "clearItem": "Clear item(s)",
+  "checkout": "Checkout"
 }
