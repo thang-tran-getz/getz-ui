@@ -1,0 +1,101 @@
+<div
+  class="surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden"
+>
+  <div class="flex flex-column align-items-center justify-content-center">
+    <div class="sign-in__frame">
+      <div
+        class="w-full surface-card py-8 px-5 sm:px-8"
+        style="border-radius: 53px"
+      >
+        <div
+          class="flex flex-column align-items-center justify-content-center mb-5 gap-5"
+        >
+          <img
+            src="assets/layout/images/logo-white.svg"
+            alt="logo"
+            class="w-10rem flex-shrink-0"
+          />
+          <p-dropdown
+            [options]="this.langs"
+            [(ngModel)]="selectedLang"
+            (onChange)="onChangeLang(selectedLang.id)"
+            optionLabel="label"
+            placeholder="Select a language"
+          ></p-dropdown>
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="flex flex-column gap-2 mb-5">
+            <label
+              for="email"
+              class="block text-900 text-xl font-medium mb-2"
+              >{{ "email" | translate }}</label
+            >
+            <input
+              formControlName="email"
+              id="email"
+              type="text"
+              [placeholder]="'emailAddress' | translate"
+              pInputText
+              class="w-full md:w-30rem p-3"
+            />
+            <small
+              *ngIf="
+                loginForm.controls['email'].touched &&
+                loginForm.hasError('required', 'email')
+              "
+              class="text-red-400"
+              >* Email is required!</small
+            >
+          </div>
+          <div class="flex flex-column gap-2 mb-5">
+            <label
+              for="password"
+              class="block text-900 font-medium text-xl mb-2"
+              >{{ "password" | translate }}</label
+            >
+            <p-password
+              id="password"
+              formControlName="password"
+              [placeholder]="'password' | translate"
+              [toggleMask]="true"
+              inputStyleClass="w-full p-3 md:w-30rem"
+            ></p-password>
+            <small
+              *ngIf="
+                loginForm.controls['password'].touched &&
+                loginForm.hasError('required', 'password')
+              "
+              class="text-red-400"
+              >* Password is required!</small
+            >
+          </div>
+          <div
+            class="flex align-items-center justify-content-between mb-5 gap-5"
+          >
+            <div class="flex align-items-center">
+              <p-checkbox
+                id="remember-me"
+                [binary]="true"
+                class="mr-2"
+                formControlName="isRemember"
+              ></p-checkbox>
+              <label for="remember-me">{{ "rememberMe" | translate }}</label>
+            </div>
+            <a
+              class="font-medium no-underline ml-2 text-right cursor-pointer"
+              style="color: var(--primary-color)"
+              >{{ "forgotPassword" | translate }}?</a
+            >
+          </div>
+          <button
+            pButton
+            pRipple
+            label="Sign In"
+            class="w-full p-3 text-xl"
+            type="submit"
+          ></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

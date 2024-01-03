@@ -4,8 +4,8 @@ import {
   IChangBranchResponse,
   ITabModel,
 } from './select-service.model';
-import { BranchService } from '@app/shared/services/branch.service';
-import { IBaseResponse } from '@shared/models/base-response.model';
+import { BranchService } from '@app/modules/common/services/branch.service';
+import { IBaseResponseModel } from '@app/cores/models/base-response.model';
 import { DialogDynamicRef } from '../dialog-dynamic-ref';
 import { DialogDynamicModel } from '../dialog-dynamic.model';
 
@@ -44,7 +44,7 @@ export class SelectServiceComponent implements OnInit {
   ngOnInit(): void {
     this._branchService
       .fetchBranches()
-      .subscribe((response: IBaseResponse<IBranchModel[]>) => {
+      .subscribe((response: IBaseResponseModel<IBranchModel[]>) => {
         console.log(this._config.data);
         this.pickupBranches = response.data.filter((_) => _.enablePickup);
         this.dineInBranches = response.data.filter(
@@ -73,7 +73,7 @@ export class SelectServiceComponent implements OnInit {
   private selectBranchDineIn(index: number): void {
     this._branchService
       .clearSessionAnnouncement()
-      .subscribe((response: IBaseResponse<any>) => {
+      .subscribe((response: IBaseResponseModel<any>) => {
         this._dialogDynamicRef.close(response);
       });
   }
@@ -81,7 +81,7 @@ export class SelectServiceComponent implements OnInit {
   private selectBranchPickup(index: number): void {
     this._branchService
       .selectBranch(index, false)
-      .subscribe((response: IBaseResponse<IChangBranchResponse>) => {
+      .subscribe((response: IBaseResponseModel<IChangBranchResponse>) => {
         this._dialogDynamicRef.close(response);
       });
   }

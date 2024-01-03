@@ -27,9 +27,7 @@ export class NavComponent implements OnInit {
   constructor(
     private _appService: AppService,
     private _translateService: TranslateService
-  ) {
-    _translateService.addLangs(['en', 'vi']);
-  }
+  ) {}
 
   ngOnInit(): void {
     this.translateMenuItems();
@@ -43,12 +41,14 @@ export class NavComponent implements OnInit {
 
   public onChangeTheme(themeId: string) {
     this._appService.switchTheme(themeId);
-    this.selectedTheme = this.themes.find((theme) => theme.id === themeId) || this.themes[0];
+    this.selectedTheme =
+      this.themes.find((theme) => theme.id === themeId) || this.themes[0];
   }
 
   public onChangeLang(langId: string) {
     this._translateService.use(langId);
-    this.selectedLang = this.langs.find((lang) => lang.id === langId) || this.themes[0];
+    this.selectedLang =
+      this.langs.find((lang) => lang.id === langId) || this.langs[0];
     this.translateMenuItems();
   }
 

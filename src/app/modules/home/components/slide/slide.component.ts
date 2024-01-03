@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ISlidePartialModel } from './slide.model';
+import { ISlidePartialModel } from '../../models/slide.model';
 
 @Component({
   selector: 'app-slide',

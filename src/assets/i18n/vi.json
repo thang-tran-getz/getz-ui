@@ -5,6 +5,12 @@
     "about": "Giới thiệu"
   },
   "signIn": "Đăng nhập",
+  "signUp": "Đăng ky",
+  "email": "Email",
+  "emailAddress": "Dia chi Email",
+  "password": "Mat khau",
+  "rememberMe": "Giu trang thai dang nhap",
+  "forgotPassword": "Quen mat khau",
   "selectServices": "Chọn dịch vụ",
   "aboutUs": "Giới thiệu",
   "deliveryInformation": "Thông tin vận chuyển",

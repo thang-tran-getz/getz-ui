@@ -5,6 +5,12 @@
     "about": "About"
   },
   "signIn": "Sign in",
+  "signUp": "Sign up",
+  "email": "Email",
+  "emailAddress": "Email address",
+  "password": "Password",
+  "rememberMe": "Remember me",
+  "forgotPassword": "Forgot password",
   "selectServices": "Select services",
   "aboutUs": "About us",
   "deliveryInformation": "Delivery Information",

@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import {
   ISlideModel,
   ISlidePartialModel,
-} from '../../components/slide/slide.model';
-import { HomeService } from '@app/shared/services/home.service';
-import { IBaseResponse } from '@app/shared/models/base-response.model';
-import { IHomeDataRequest } from './home.model';
+} from '../../models/slide.model';
+import { HomeService } from '@app/modules/home/services/home.service';
+import { IBaseResponseModel } from '@app/cores/models/base-response.model';
+import { IHomeDataRequest } from '../../models/home.model';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +21,7 @@ export class HomeComponent {
   ngOnInit(): void {
     this._homeService
       .fetchSlideImages()
-      .subscribe((response: IBaseResponse<ISlideModel>) => {
+      .subscribe((response: IBaseResponseModel<ISlideModel>) => {
         const { arraySlideHeader, arraySlideFooter } = response.data;
         this.slideHeaders = arraySlideHeader.sort((item) => item.priority);
         this.slideFooters = arraySlideFooter.sort((item) => item.priority);

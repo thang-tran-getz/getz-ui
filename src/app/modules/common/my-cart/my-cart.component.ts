@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { SelectServiceComponent } from '../dialogs/select-service/select-service.component';
 import { DialogDynamicService } from '../dialogs/dialog-dynamic.service';
 import { DialogDynamicRef } from '../dialogs/dialog-dynamic-ref';
-import { HomeService } from '@app/shared/services/home.service';
+import { HomeService } from '@app/modules/home/services/home.service';
 
 @Component({
   selector: 'app-my-cart',

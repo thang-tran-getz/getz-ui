@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { delay } from 'rxjs';
-import { LoadingService } from './shared/services/loading.service';
+import { LoadingService } from './modules/layout/services/loading.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +15,11 @@ export class AppComponent implements OnInit {
 
   constructor(
     private _messageService: MessageService,
-    private _loading: LoadingService
-  ) {}
+    private _loading: LoadingService,
+    private _translateService: TranslateService
+  ) {
+    this._translateService.addLangs(['en', 'vi']);
+  }
 
   ngOnInit(): void {
     this.listenToLoading();

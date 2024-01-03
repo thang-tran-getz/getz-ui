@@ -12,6 +12,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { MyCartModule } from '@common/my-cart/my-cart.module';
 import { CarouselModule } from 'primeng/carousel';
 import { SlideComponent } from './components/slide/slide.component';
+import { NgxsModule } from '@ngxs/store';
+import { ProductState } from '@app/store/states/product.state';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { SlideComponent } from './components/slide/slide.component';
     DropdownModule,
     InputTextModule,
     MyCartModule,
+    NgxsModule.forFeature([ProductState]),
   ],
 })
 export class HomeModule {}

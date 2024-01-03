@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BaseService } from './base.service';
+import { BaseService } from '../../../cores/services/base.service';
 import { Observable } from 'rxjs';
-import { IHomeDataRequest } from '@app/modules/home/pages/home/home.model';
+import { IHomeDataRequest } from '@app/modules/home/models/home.model';
 
 @Injectable({
   providedIn: 'root',

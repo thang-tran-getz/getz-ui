@@ -4,9 +4,34 @@
       <h2 class="nav-wrapper__branch-name">HAI TRAN FOODS 1ST BRANCH OS</h2>
     </div>
     <div class="flex flex-row gap-2 p-2 nav-wrapper__sign-in">
-      <p-dropdown [options]="themes" [(ngModel)]="selectedTheme" (onChange)="onChangeTheme(selectedTheme.id)" optionLabel="label" placeholder="Select a theme"></p-dropdown>
-      <p-dropdown [options]="this.langs" [(ngModel)]="selectedLang" (onChange)="onChangeLang(selectedLang.id)" optionLabel="label" placeholder="Select a language"></p-dropdown>
-      <button pButton pRipple type="button" [label]="'signIn' | translate" [routerLink]="['/login']"></button>
+      <p-dropdown
+        [options]="themes"
+        [(ngModel)]="selectedTheme"
+        (onChange)="onChangeTheme(selectedTheme.id)"
+        optionLabel="label"
+        placeholder="Select a theme"
+      ></p-dropdown>
+      <p-dropdown
+        [options]="this.langs"
+        [(ngModel)]="selectedLang"
+        (onChange)="onChangeLang(selectedLang.id)"
+        optionLabel="label"
+        placeholder="Select a language"
+      ></p-dropdown>
+      <button
+        pButton
+        pRipple
+        type="button"
+        [label]="'signIn' | translate"
+        [routerLink]="['/auth/sign-in']"
+      ></button>
+      <button
+        pButton
+        pRipple
+        type="button"
+        [label]="'signUp' | translate"
+        [routerLink]="['/auth/sign-up']"
+      ></button>
     </div>
   </div>
   <nav
